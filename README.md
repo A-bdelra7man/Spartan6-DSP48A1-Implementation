@@ -1,49 +1,45 @@
-📌 Project Overview
+# 🚀 Spartan-6 DSP48A1 Slice Implementation
 
-The DSP48A1 slice is a high-performance arithmetic unit found in Spartan-6 FPGAs, supporting pre-addition/subtraction, multiplication, and post-addition/subtraction operations.
+A complete Verilog implementation of the **DSP48A1** high-performance arithmetic slice found in Xilinx Spartan-6 FPGAs. This project encompasses the full RTL design, functional verification, and FPGA implementation flow.
 
-This project implements the DSP48A1 architecture in Verilog, verifies it using a self-checking testbench, and completes the Vivado FPGA flow including elaboration, synthesis, implementation, and linting.
+## 📖 Project Overview
 
-🛠 Features
+The DSP48A1 slice is a highly flexible arithmetic unit supporting pre-addition/subtraction, multiplication, and post-addition/subtraction operations. This project successfully implements its complex architecture, verifies it using an automated self-checking testbench, and completes the Xilinx Vivado design flow (Elaboration, Synthesis, Implementation) while maintaining strict linting standards.
 
-Configurable Pipeline Registers: Implemented A0/A1, B0/B1, CREG, DREG, MREG, PREG, CARRYINREG, CARRYOUTREG, and OPMODEREG.
+## ✨ Key Features
 
-Arithmetic Operations: Supports pre-add/subtract, multiplication, and post-add/subtract as per OPMODE.
+- **Configurable Pipeline Registers:** Fully parameterized implementation of `A0/A1`, `B0/B1`, `CREG`, `DREG`, `MREG`, `PREG`, `CARRYINREG`, `CARRYOUTREG`, and `OPMODEREG`.
+- **Advanced Arithmetic Operations:** Dynamic support for pre-add/subtract, multiplication, and post-add/subtract routed via the `OPMODE` control signal.
+- **Cascade Connectivity:** Full datapath support for `BCIN/BCOUT` and `PCIN/PCOUT` to chain multiple DSP blocks for complex DSP algorithms.
+- **Robust Verification:** A comprehensive self-checking testbench covering asynchronous resets and all major DSP datapaths (Paths 1–4) with automated expected-output comparisons.
 
-Cascade Connections: Full support for BCIN/BCOUT and PCIN/PCOUT for chaining multiple DSP blocks.
+## 🔬 Verification & Implementation Flow
 
-Comprehensive Testbench: Covers reset operation and DSP Paths 1–4 with expected outputs.
+1. **Simulation (QuestaSim):** Functionality verified via automated `.do` files for comprehensive waveform analysis and corner-case testing.
+2. **Code Quality (Linting):** Strict code linting performed to ensure zero HDL coding violations and adherence to industry standards.
+3. **Synthesis & Implementation (Vivado):** Complete FPGA flow executed targeting the `xc7a200tffg1156-3` device.
+4. **Timing Closure:** Successfully achieved zero timing violations at a **100 MHz** clock frequency with optimal resource utilization.
 
-🔍 Verification Process
+## 📊 Results Summary
 
-Simulation: Verified functionality in QuestaSim using .do files for automated waveform analysis.
+- ✅ All testbench cases passed successfully with correct arithmetic outputs.
+- ✅ Clean, warning-free reports for Synthesis, Implementation, and Linting.
+- ✅ Efficient FPGA resource utilization and fully met timing constraints.
 
-Linting: Performed code linting to ensure zero coding errors.
+## 🛠️ Tools & Technologies
 
-Synthesis & Implementation: Used Vivado for elaboration, synthesis, and implementation at 100 MHz, achieving zero timing violations and optimal FPGA resource usage.
+- **Hardware Description Language:** Verilog
+- **Simulation & Debugging:** QuestaSim
+- **Synthesis & Implementation:** Xilinx Vivado
+- **Target Device:** Xilinx Spartan-6 (`xc7a200tffg1156-3`)
 
-📊 Results
+## 📂 Repository Structure
 
-All test cases produced correct outputs.
-
-Clean reports for synthesis, implementation, and linting.
-
-Efficient FPGA resource utilization on Xilinx xc7a200tffg1156-3 device.
-
-🗂 Repository Structure
-├── RTL/                   # Verilog RTL source files
-├── Testbench/             # Self-checking testbench files
-├── DoFiles/               # .do files for QuestaSim automation
-├── Constraints/           # Constraint file (timing @100MHz)
-├── Reports/               # Synthesis, Implementation, Timing, Linting reports
-└── README.md              # Project description
-
-🛠 Tools & Technologies
-
-->HDL: Verilog
-
-->Simulation: QuestaSim
-
-->FPGA Design Flow: Vivado
-
-->Device: Xilinx Spartan-6 (xc7a200tffg1156-3)
+```text
+📦 Spartan6-DSP48A1-Implementation
+ ┣ 📂 RTL/                 # Verilog RTL source files (Design modules)
+ ┣ 📂 Testbench/           # Self-checking testbench files
+ ┣ 📂 DoFiles/             # .do scripts for QuestaSim automation
+ ┣ 📂 Constraints/         # XDC Constraint files (timing @100MHz)
+ ┣ 📂 Reports/             # Synthesis, Implementation, Timing, and Linting reports
+ ┗ 📜 README.md            # Project documentation
